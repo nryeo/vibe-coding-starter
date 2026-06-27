@@ -6,7 +6,7 @@ export type Profile = {
   name: string;
   team: string;
   position: string;
-  uniform_number: string;
+  comment: string;
   tagline: string;
   introduction: string;
   image_path: string;
@@ -21,15 +21,14 @@ const dbPath = path.join(process.cwd(), "local.db");
 
 const defaultProfile: Profile = {
   id: 1,
-  name: "오타니 쇼헤이",
-  team: "LA 다저스",
-  position: "투수 / 지명타자",
-  uniform_number: "17번",
-  tagline:
-    "투수와 타자를 모두 소화하는 세계적인 야구 선수입니다. 강한 타격, 빠른 주루, 압도적인 경기 영향력으로 많은 팬들에게 사랑받고 있습니다.",
+  name: "오혜진",
+  team: "구직자",
+  position: "기획자",
+  comment: "완성까지 화이팅",
+  tagline: "경남에 서식하는 기획자입니다. 재미추구인간.",
   introduction:
-    "안녕하세요. 저는 오타니 쇼헤이입니다. 현재 LA 다저스에서 뛰고 있으며, 매 경기 팀에 도움이 되는 선수가 되기 위해 최선을 다하고 있습니다.",
-  image_path: "/images/ohtani.jpeg",
+    "안녕하세요. 저는 오혜진입니다. 현재 구직 중이며, 프로젝트의 질을 올리는 데에 최선을 다하겠습니다.",
+  image_path: "/images/clover-field.svg",
 };
 
 const defaultHighlights: Highlight[] = [
@@ -66,7 +65,7 @@ export function getProfile() {
   try {
     const profile = getDb()
       .prepare(
-        "SELECT id, name, team, position, uniform_number, tagline, introduction, image_path FROM profile ORDER BY id LIMIT 1",
+        "SELECT id, name, team, position, uniform_number AS comment, tagline, introduction, image_path FROM profile ORDER BY id LIMIT 1",
       )
       .get() as Profile | undefined;
 

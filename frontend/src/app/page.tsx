@@ -5,11 +5,11 @@ export default function Home() {
   const highlights = getHighlights();
 
   return (
-    <main className="min-h-screen bg-blue-50 px-6 py-10 text-slate-900">
+    <main className="min-h-screen bg-[url('/images/star-trails.svg')] bg-cover bg-center px-6 py-10 text-slate-900">
       {/* 자기소개 전체 화면: 학생들이 이름, 소속, 설명을 바꿔보는 첫 실습 영역 */}
-      <section className="mx-auto max-w-4xl rounded-lg bg-white p-8 shadow-sm">
+      <section className="mx-auto max-w-4xl rounded-lg bg-white/85 p-8 shadow-sm backdrop-blur-sm">
         <div className="grid gap-8 md:grid-cols-[280px_1fr] md:items-center">
-          {/* 프로필 사진 영역: public/images/ohtani.jpeg 파일을 화면에 보여줌 */}
+          {/* 프로필 사진 영역: public/images/clover-field.svg 파일을 화면에 보여줌 */}
           <img
             src={profile.image_path}
             alt={`${profile.name} 프로필 사진`}
@@ -17,7 +17,7 @@ export default function Home() {
           />
 
           <div>
-            <p className="text-sm font-bold text-blue-600">Baseball Player Profile</p>
+            <p className="text-sm font-bold text-blue-600">Profile</p>
             <h1 className="mt-3 text-4xl font-black text-slate-950 sm:text-5xl">{profile.name}</h1>
             <p className="mt-4 text-lg leading-8 text-slate-700">{profile.tagline}</p>
           </div>
@@ -38,8 +38,8 @@ export default function Home() {
             <p className="mt-2 text-xl font-black text-slate-950">{profile.position}</p>
           </div>
           <div className="rounded-lg border border-slate-200 bg-blue-50 p-5">
-            <p className="text-sm font-bold text-slate-500">등번호</p>
-            <p className="mt-2 text-xl font-black text-slate-950">{profile.uniform_number}</p>
+            <p className="text-sm font-bold text-slate-500">프로젝트에 임하는 자세</p>
+            <p className="mt-2 text-xl font-black text-slate-950">{profile.comment}</p>
           </div>
         </div>
 
